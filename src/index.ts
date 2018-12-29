@@ -14,11 +14,11 @@ export class FractalTree {
     public constructor(maxChildren: number) {
         this.merkleTree = MerkleTree.create();
         this.childTrees = [];
-        this.childLimit = maxChildren;
+        this.childLimit = maxChildren < 2 ? 2 : maxChildren;
         this.treeState = this._addNode();
     }
 
-    public async addNode(data: any) {
+    public async addNode(data: any): Promise<void> {
         this.data = data;
         await this.treeState.next();
     }
@@ -33,7 +33,7 @@ export class FractalTree {
         }
 
         while (true) {
-            for (let i = 0; i < this.childLimit; ++i) {
+            for (let i = this.childLimit >> 1; i < this.childLimit; ++i) {
                 this.childTrees[i] = new FractalTree(this.childLimit >> 1);
                 yield* await this.childTrees[i]._addNode();
             }
