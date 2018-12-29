@@ -15,14 +15,11 @@ export class FractalTree {
         this.merkleTree = MerkleTree.create();
         this.childTrees = [];
         this.childLimit = maxChildren;
-        this.treeState = {} as AsyncIterableIterator<void>;
+        this.treeState = this._addNode();
     }
 
     public async addNode(data: any) {
         this.data = data;
-        if (this.treeState === null) {
-            this.treeState = this._addNode();
-        }
         await this.treeState.next();
     }
 
