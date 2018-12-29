@@ -10,12 +10,15 @@ export class FractalTree {
     private treeState: AsyncIterableIterator<void>;
     private data: any;
 
-
-    public constructor(maxChildren: number) {
+    private constructor(maxChildren: number) {
         this.merkleTree = MerkleTree.create();
         this.childTrees = [];
         this.childLimit = maxChildren < 2 ? 2 : maxChildren;
         this.treeState = this._addNode();
+    }
+
+    public static create() {
+        return new FractalTree(2);
     }
 
     public async addNode(data: any): Promise<void> {
