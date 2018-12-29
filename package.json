@@ -1,0 +1,27 @@
+{
+  "name": "fractaltree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joseph Harrison-Lim",
+  "license": "ISC",
+  "dependencies": {
+    "@jharrilim/merkletree-js": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "source-map-support": "^0.5.9",
+    "ts-node": "^7.0.1",
+    "typedoc": "^0.13.0",
+    "typescript": "^3.2.2"
+  }
+}
